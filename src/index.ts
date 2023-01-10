@@ -20,7 +20,7 @@ app.get<Parameter>("/calculate/:x/:y", (request,response) => {
     let xValue = parseFloat(request.params["x"]); // Valeur x 
     let yValue = parseFloat(request.params["y"]); // Valeur y
     let method = request.query["method"]; // Methode de calcul
-    
+
 
     switch (method){    
         case "add": return `${xValue} + ${yValue} = ${xValue + yValue}`;
@@ -39,7 +39,7 @@ app.get<Parameter>("/calculate/:x/:y", (request,response) => {
 })
 
 
-app.listen({port: 1887, host: "127.0.0.1"}, () => { 
+app.listen({port: parseInt(process.env.PORT || ""), host: process.env.HOSTNAME}, () => { 
     console.log("Hebergé")
 });
 
