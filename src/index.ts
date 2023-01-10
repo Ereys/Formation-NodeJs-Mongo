@@ -7,8 +7,8 @@ const app = fastify();
 
 type Parameter = {
     Params : {
-        x: number
-        y: number
+        x: string
+        y: string
     }
     Querystring : {
         method: string
@@ -17,12 +17,13 @@ type Parameter = {
 
 app.get<Parameter>("/calculate/:x/:y", (request,response) => {
 
-    let xValue = request.params["x"]; // Valeur x 
-    let yValue = request.params["y"]; // Valeur y
+    let xValue = parseFloat(request.params["x"]); // Valeur x 
+    let yValue = parseFloat(request.params["y"]); // Valeur y
     let method = request.query["method"]; // Methode de calcul
+    
 
-    switch (method){
-        case "add": return `${xValue} + ${yValue} = ${xValue+yValue}`;
+    switch (method){    
+        case "add": return `${xValue} + ${yValue} = ${xValue + yValue}`;
         case "sub": return `${xValue} - ${yValue} = ${xValue - yValue}`;
         case "mul": return `${xValue} * ${yValue} = ${xValue * yValue}`;
         case "div": 
