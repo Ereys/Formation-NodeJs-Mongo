@@ -1,0 +1,25 @@
+
+### Get ADD
+GET http://127.0.0.1:1887/todos
+
+
+
+### POST ITEM
+
+POST http://127.0.0.1:1887/todos
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "test todo item",
+  "done": false
+}
+
+
+###GET ITEM BY ID
+
+GET http://127.0.0.1:1887/todos/1
+
+
+###DELETE ITEM BY ID
+DELETE http://127.0.0.1:1887/todos/1

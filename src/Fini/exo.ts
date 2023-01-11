@@ -30,7 +30,7 @@ console.table(notes);
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
 
-type TableauxDeNotes = number[];
+type TableauxDeNotes = number[]; /* Alias */
 
 
 /**
@@ -128,7 +128,7 @@ console.log(printNotes(studentExemple.notes));
 
 function getAverage(notes: number[]): number{
     var averageToReturn : number = 0;
-    notes.forEach((item: number) => averageToReturn += item);
+    notes.map((item: number) => averageToReturn += item);
 
     return averageToReturn/notes.length;
 }
@@ -172,3 +172,4 @@ const etudiantAleatoire: IdentifiableStudent = {
     notes: notes,
     id: 10,
 }
+
